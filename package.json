@@ -1,0 +1,21 @@
+{
+  "name": "canvas-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "first.test.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "jest-puppeteer"
+  },
+  "keywords": [],
+  "author": "Yousaf",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "jest-puppeteer": "^3.8.0"
+  }
+}
