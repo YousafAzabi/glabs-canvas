@@ -1,0 +1,14 @@
+{
+  "name": "docker_web_app_tester",
+  "version": "1.0.0",
+  "description": "Jest and Puppeteer on Docker",
+  "author": "Yousaf Azabi <yousaf.azabi.1@city.ac.uk>",
+  "main": "index.test.js",
+  "scripts": {
+    "start": "npm test",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}

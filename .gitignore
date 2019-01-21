@@ -1,5 +1,6 @@
 # Screenshots
 *.png
+screenshots/*
 
 # Dependency directories
 node_modules/
