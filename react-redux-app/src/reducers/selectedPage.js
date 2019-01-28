@@ -1,6 +1,6 @@
 import { PageNumbers } from '../actions'
 
-const selectPage = (state = PageNumbers.ONE, action) => {
+const selectedPage = (state = PageNumbers.ONE, action) => {
   switch (action.type) {
     case 'CHOOSE_PAGE':
       return action.number
@@ -9,4 +9,4 @@ const selectPage = (state = PageNumbers.ONE, action) => {
   }
 }
 
-export default selectPage
+export default selectedPage

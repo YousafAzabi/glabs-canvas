@@ -1,7 +1,7 @@
 import notes from '../reducers/notes';
 
 describe('Testing reducer "notes"', () => {
-  describe('Testing ADD_NOTE case:', () => {
+  describe('Testing ADD_NOTE case', () => {
     test('Test to ADD a Note when array empty.', () => {
       const state = [];
       const action = {type: 'ADD_NOTE', id: 1, text: 'Test Message 1', page: 'ONE'};
@@ -26,7 +26,7 @@ describe('Testing reducer "notes"', () => {
     });
   });
 
-  describe('Testing DELETE_NOTE case:', () => {
+  describe('Testing DELETE_NOTE case', () => {
     test('Test to DELETE a Note from middle of the list.', () => {
       const state = [
         {id: 1, text: 'Test Message 1', page: 'ONE'},
@@ -70,7 +70,7 @@ describe('Testing reducer "notes"', () => {
     });
   });
 
-  describe('Testing MOVE_NOTE case:', () => {
+  describe('Testing MOVE_NOTE case', () => {
     test('Test to MOVE a Note from page to another.', () => {
       const state = [
         {id: 1, text: 'Test Message 1', page: 'ONE'},
