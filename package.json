@@ -2,6 +2,7 @@
   "name": "canvas-testing",
   "version": "1.0.0",
   "description": "",
+  "author": "Yousaf Azabi <yousaf.azabi.1@city.ac.uk>",
   "main": "first.test.js",
   "scripts": {
     "test": "jest"
@@ -9,13 +10,13 @@
   "jest": {
     "preset": "jest-puppeteer"
   },
-  "keywords": [],
-  "author": "Yousaf",
-  "license": "ISC",
   "devDependencies": {
     "jest": "^23.6.0"
   },
   "dependencies": {
-    "jest-puppeteer": "^3.8.0"
+    "jest-puppeteer": "^3.8.0",
+    "puppeteer": "^1.11.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1"
   }
 }
