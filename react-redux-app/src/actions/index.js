@@ -6,11 +6,6 @@ export const addNote = (text, page = 'ONE') => ({
   page
 })
 
-export const setSelectedPage = number => ({ 
-  type: 'CHOOSE_PAGE',
-  number
-})
-
 export const deleteNote = (id) => ({
   type: 'DELETE_NOTE',
   id
@@ -20,6 +15,11 @@ export const moveNote = (id, page) => ({
   type: 'MOVE_NOTE',
   id,
   page
+})
+
+export const setSelectedPage = number => ({
+  type: 'CHOOSE_PAGE',
+  number
 })
 
 export const PageNumbers = {
