@@ -6,13 +6,19 @@ export const addNote = (text, page = 'ONE') => ({
   page
 })
 
-export const deleteNote = (id) => ({
+export const deleteNote = id => ({
   type: 'DELETE_NOTE',
   id
 })
 
 export const moveNote = (id, page) => ({
   type: 'MOVE_NOTE',
+  id,
+  page
+})
+
+export const moveUp = (id, page) => ({
+  type: 'MOVE_UP',
   id,
   page
 })

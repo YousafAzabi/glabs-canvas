@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Note from './Note'
 
-const NoteList = ({ notes, onClickDelete, onClickMove }) => (
+const NoteList = ({notes, onClickDelete, onClickMove, onClickUp}) => (
   <ul>
     {notes.map(note => (
       <Note key={note.id} {...note}
       onClickDelete={() => {onClickDelete(note.id)}}
-      onClickMove={() => {onClickMove(note.id, prompt("Move note to Page: "))}}/>
+      onClickMove={() => {onClickMove(note.id, prompt("Move note to Page: "))}}
+      onClickUp={() => {onClickUp(note.id, note.page)}} />
     ))}
   </ul>
 )

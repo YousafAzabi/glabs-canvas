@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Note = ({ onClickDelete, onClickMove, childern, text }) => (
+const Note = ({onClickDelete, onClickMove, onClickUp, childern, text}) => (
   <li>
-    {text}
+    <span>{text}</span>
     <button onClick={onClickDelete}>Delete</button>
     <button onClick={onClickMove}>Move</button>
+    <button onClick={onClickUp}>Up</button>
   </li>
 )
 

@@ -1,15 +1,12 @@
 const notes = (state = [], action) => {
-  let obj
+  let obj = state
   switch (action.type) {
     case 'ADD_NOTE':
-      return [
+      obj = [
         ...state,
-        {
-          id: action.id,
-          text: action.text,
-          page: action.page
-        }
+        { id: action.id, text: action.text, page: action.page }
       ]
+      break
     case 'DELETE_NOTE':
       state.forEach( note => {
         if (note.id === action.id) {
@@ -32,10 +29,28 @@ const notes = (state = [], action) => {
           ]
         }
       })
-      return obj
+      break
+    case 'MOVE_UP':
+      let previousInd, currentInd, counter = 0;
+      state.forEach( note => {
+        if (note.page === action.page) {
+          if (note.id === action.id & counter++ !== 0) {
+            currentInd = state.indexOf(note);
+            obj = [
+              ...state.slice(0, previousInd),
+              state[currentInd],
+              state[previousInd],
+              ...state.slice(++currentInd)
+            ]
+          }
+          previousInd = state.indexOf(note)
+        }
+      })
+      break
     default:
-      return state
+      obj = state
   }
+  return obj
 }
 
 export default notes
