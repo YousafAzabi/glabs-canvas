@@ -11,7 +11,7 @@ describe('Testing reducer "selectedPage"', () => {
 
     test('Test default case.', () => {
       const state = 'ONE';
-      const action = {type: 'ANY', number: 'TWO'};
+      const action = {type: 'DEFAULT', number: 'TWO'};
       const expected = state;
       expect(selectedPage(state, action)).toEqual(expected);
     });
