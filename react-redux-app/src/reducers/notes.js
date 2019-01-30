@@ -1,37 +1,32 @@
 const notes = (state = [], action) => {
+
   let obj = state
+  let previousInd, currentInd, nextInd, counter = 0;
+
   switch (action.type) {
     case 'ADD_NOTE':
-      obj = [
+      return [
         ...state,
         { id: action.id, text: action.text, page: action.page }
       ]
-      break
+
     case 'DELETE_NOTE':
-      state.forEach( note => {
-        if (note.id === action.id) {
-          const ind = state.indexOf(note)
-          obj = [
-            ...state.slice(0, ind),
-            ...state.slice(ind+1)
-          ]
-        }
-      })
-      return obj
+      currentInd = state.indexOf(state.filter( e => e.id === action.id)[0])
+      return [
+        ...state.slice(0, currentInd),
+        ...state.slice(++currentInd)
+      ]
+
     case 'MOVE_NOTE':
-      state.forEach( note => {
-        if (note.id === action.id) {
-          const ind = state.indexOf(note)
-          obj = [
-            ...state.slice(0, ind),
-            { id: note.id, text: note.text, page: action.page },
-            ...state.slice(ind+1)
-          ]
-        }
-      })
-      break
+      const note = state.filter( e => e.id === action.id)[0]
+      currentInd = state.indexOf(note)
+      return [
+        ...state.slice(0, currentInd),
+        { id: note.id, text: note.text, page: action.page },
+        ...state.slice(++currentInd)
+      ]
+
     case 'MOVE_UP':
-      let previousInd, currentInd, counter = 0;
       state.forEach( note => {
         if (note.page === action.page) {
           if (note.id === action.id & counter++ !== 0) {
@@ -39,18 +34,39 @@ const notes = (state = [], action) => {
             obj = [
               ...state.slice(0, previousInd),
               state[currentInd],
-              state[previousInd],
+              ...state.slice(++previousInd, currentInd),
+              state[--previousInd],
               ...state.slice(++currentInd)
             ]
           }
           previousInd = state.indexOf(note)
         }
       })
-      break
+      return obj
+
+    case 'MOVE_DOWN':
+      state.forEach( note => {
+        if (note.page === action.page && counter !== 0) {
+          nextInd = state.indexOf(note)
+          obj = [
+            ...state.slice(0, currentInd),
+            state[nextInd],
+            ...state.slice(++currentInd, nextInd),
+            state[--currentInd],
+            ...state.slice(++nextInd)
+          ]
+          counter = 0
+        }
+        if (note.id === action.id ) {
+          currentInd = state.indexOf(note)
+          counter++
+        }
+      })
+      return obj
+
     default:
-      obj = state
+      return state
   }
-  return obj
 }
 
 export default notes

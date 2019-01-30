@@ -23,6 +23,12 @@ export const moveUp = (id, page) => ({
   page
 })
 
+export const moveDown = (id, page) => ({
+  type: 'MOVE_DOWN',
+  id,
+  page
+})
+
 export const setSelectedPage = number => ({
   type: 'CHOOSE_PAGE',
   number
