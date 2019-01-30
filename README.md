@@ -1,5 +1,25 @@
 # Project Initiation Document - Canvas.in
 
+## Work so far
+
+```
+cd react-redux-app/
+npm install
+npm test
+cd ..
+npm install
+npm test UI/buttons.test.js
+```
+
+See also:
+
+* https://github.com/atlassian/react-beautiful-dnd
+* https://codesandbox.io/s/k260nyxq9v
+* https://www.npmjs.com/package/react-draggable-list
+
+* https://www.npmjs.com/package/react-native-draggable
+
+
 ## Aims
 
 ### Primary
