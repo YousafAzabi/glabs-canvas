@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Page = ({ selected, children, onClick }) => (
-  <button
+const Page = ({ id, selected, children, onClick }) => (
+  <button id={id}
     onClick={onClick}
     disabled={selected}
     style={{

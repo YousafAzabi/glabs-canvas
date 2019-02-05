@@ -2,12 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Note from './Note'
 
-const NoteList = ({ notes, onClickDelete, onClickMove }) => (
+const NoteList = ({notes, onClickDelete, onClickMove, onClickUp, onClickDown}) => (
   <ul>
     {notes.map(note => (
       <Note key={note.id} {...note}
       onClickDelete={() => {onClickDelete(note.id)}}
-      onClickMove={() => {onClickMove(note.id, prompt("Move note to Page: "))}}/>
+      onClickMove={() => {onClickMove(note.id, prompt("Move note to Page: "))}}
+      onClickUp={() => {onClickUp(note.id, note.page)}}
+      onClickDown={() => {onClickDown(note.id, note.page)}} />
     ))}
   </ul>
 )
@@ -20,7 +22,9 @@ NoteList.propTypes = {
       page: PropTypes.string.isRequired
     }).isRequired).isRequired,
   onClickDelete: PropTypes.func.isRequired,
-  onClickMove: PropTypes.func.isRequired
+  onClickMove: PropTypes.func.isRequired,
+  onClickUp: PropTypes.func.isRequired,
+  onClickDown: PropTypes.func.isRequired
 }
 
 export default NoteList

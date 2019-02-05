@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
-import { deleteNote } from '../actions'
-import { moveNote } from '../actions'
+import {deleteNote, moveNote, moveUp, moveDown} from '../actions'
 import NoteList from '../components/NoteList'
 
 const getVisibleNotes = (notes, number) => {
@@ -13,7 +12,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onClickDelete: (id) => dispatch(deleteNote(id)),
-  onClickMove: (id, page) => dispatch(moveNote(id, page))
+  onClickMove: (id, page) => dispatch(moveNote(id, page)),
+  onClickUp: (id, page) => dispatch(moveUp(id, page)),
+  onClickDown: (id, page) => dispatch(moveDown(id, page))
 })
 
 export default connect(

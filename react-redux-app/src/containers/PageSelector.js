@@ -3,7 +3,8 @@ import { setSelectedPage } from '../actions'
 import Page from '../components/Page'
 
 const mapStateToProps = (state, ownProps) => ({
-  selected: ownProps.number === state.selectedPage
+  selected: ownProps.number === state.selectedPage,
+  id: ownProps.id
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
