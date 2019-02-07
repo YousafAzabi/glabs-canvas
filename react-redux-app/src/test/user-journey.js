@@ -23,26 +23,19 @@ const puppeteer = require('puppeteer');
   });
   await addNote(page, noteList[0]);
   await addNote(page, noteList[1]);
-  await tabKeyPress(page, 7);
+  await page.click('#item1 .move');
   await page.click('#FOUR');
   await addNote(page, noteList[2]);
   await addNote(page, noteList[3]);
-  await tabKeyPress(page, 12);
-  await page.keyboard.press('Enter');
+  await page.focus('#item2 span');
+  await page.click('#item2 .up');
   await addNote(page, noteList[4]);
-  await tabKeyPress(page, 14);
+  await page.click('#item3 .delete');
 
   //await browser.close();
 })();
 
 const addNote = async (page, message) => {
   await page.type('input', message);
-  await page.keyboard.press('Enter');
-}
-
-const tabKeyPress = async (page, number) => {
-  for(let i = 0; i < number; i++){
-    await page.keyboard.press('Tab');
-  }
   await page.keyboard.press('Enter');
 }
