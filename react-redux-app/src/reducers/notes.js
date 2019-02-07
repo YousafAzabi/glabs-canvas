@@ -1,3 +1,5 @@
+import {arrayMove} from 'react-sortable-hoc' //
+
 const notes = (state = [], action) => {
 
   let obj = state
@@ -27,8 +29,8 @@ const notes = (state = [], action) => {
       ]
 
     case 'MOVE_UP':
-      state.forEach( note => {
-        if (note.page === action.page) {
+      state.filter( e => e.page === action.page)
+        .forEach(note => {
           if (note.id === action.id & counter++ !== 0) {
             currentInd = state.indexOf(note);
             obj = [
@@ -40,8 +42,7 @@ const notes = (state = [], action) => {
             ]
           }
           previousInd = state.indexOf(note)
-        }
-      })
+        })
       return obj
 
     case 'MOVE_DOWN':
@@ -63,6 +64,9 @@ const notes = (state = [], action) => {
         }
       })
       return obj
+
+    case 'SORT_ITEM':
+      return arrayMove(state, action.oldIndex, action.newIndex)
 
     default:
       return state

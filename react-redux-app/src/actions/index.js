@@ -29,9 +29,15 @@ export const moveDown = (id, page) => ({
   page
 })
 
-export const setSelectedPage = number => ({
+export const setSelectedPage = page => ({
   type: 'CHOOSE_PAGE',
-  number
+  page
+})
+
+export const dragDrop = ({oldIndex, newIndex}) => ({ 
+  type: 'SORT_ITEM',
+  oldIndex,
+  newIndex
 })
 
 export const PageNumbers = {
