@@ -2,8 +2,8 @@ import {arrayMove} from 'react-sortable-hoc' //
 
 const notes = (state = [], action) => {
 
-  let obj = state
-  let previousInd, currentInd, nextInd, counter = 0;
+  let arr = Array.from(state)
+  let currentInd, nextInd, counter = 0;
 
   switch (action.type) {
     case 'ADD_NOTE':
@@ -33,29 +33,17 @@ const notes = (state = [], action) => {
         .forEach(note => {
           if (note.id === action.id & counter++ !== 0) {
             currentInd = state.indexOf(note);
-            obj = [
-              ...state.slice(0, previousInd),
-              state[currentInd],
-              ...state.slice(++previousInd, currentInd),
-              state[--previousInd],
-              ...state.slice(++currentInd)
-            ]
+            arr = arrayMove(state, currentInd, nextInd)
           }
-          previousInd = state.indexOf(note)
+          nextInd = state.indexOf(note)
         })
-      return obj
+      return arr
 
     case 'MOVE_DOWN':
       state.forEach( note => {
         if (note.page === action.page && counter !== 0) {
           nextInd = state.indexOf(note)
-          obj = [
-            ...state.slice(0, currentInd),
-            state[nextInd],
-            ...state.slice(++currentInd, nextInd),
-            state[--currentInd],
-            ...state.slice(++nextInd)
-          ]
+            arr = arrayMove(state, currentInd, nextInd)
           counter = 0
         }
         if (note.id === action.id ) {
@@ -63,10 +51,13 @@ const notes = (state = [], action) => {
           counter++
         }
       })
-      return obj
+      return arr
 
     case 'SORT_ITEM':
-      return arrayMove(state, action.oldIndex, action.newIndex)
+      const filtered = state.filter(note => note.page === action.page)
+      currentInd = state.indexOf(filtered[action.oldIndex])
+      nextInd = state.indexOf(filtered[action.newIndex])
+      return arrayMove(state, currentInd, nextInd)
 
     default:
       return state

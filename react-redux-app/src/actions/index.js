@@ -34,10 +34,11 @@ export const setSelectedPage = page => ({
   page
 })
 
-export const dragDrop = ({oldIndex, newIndex}) => ({ 
+export const dragDrop = ({oldIndex, newIndex}, page) => ({
   type: 'SORT_ITEM',
   oldIndex,
-  newIndex
+  newIndex,
+  page
 })
 
 export const PageNumbers = {

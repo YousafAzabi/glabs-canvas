@@ -2,15 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {SortableElement} from 'react-sortable-hoc'
 
-const Note = SortableElement(({onClickDelete, onClickMove, onClickUp, onClickDown, onSortEnd, childern, text}) => (
-    <li>
-      <span onClick={onSortEnd}>{text}</span>
-      <button onClick={onClickDelete}>Delete</button>
-      <button onClick={onClickMove}>Move</button>
-      <button onClick={onClickUp}>Up</button>
-      <button onClick={onClickDown}>Down</button>
-    </li>
+const Note = SortableElement(({ind, text, onClickDelete, onClickMove, onClickUp, onClickDown, onClick}) => (
+  <li id={'item'+ind}>
+    <span onClick={onClick}>{text}</span>
+    <button className="delete" onClick={onClickDelete}>Delete</button>
+    <button className="move" onClick={onClickMove}>Move</button>
+    <button className="up" onClick={onClickUp}>Up</button>
+    <button className="down" onClick={onClickDown}>Down</button>
+  </li>
 ))
+
 
 Note.propTypes = {
   onClickDelete: PropTypes.func.isRequired,
