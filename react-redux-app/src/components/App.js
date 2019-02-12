@@ -6,7 +6,7 @@ import FilterAddNote from '../containers/FilterAddNote'
 import VisibleNoteList from '../containers/VisibleNoteList'
 import ValuePropositionStatement from '../components/ValuePropositionStatement'
 
-const App = ({ mode }) => {
+const App = ({ mode, notes }) => {
   switch (mode) {
     case 'EDIT':
       return (
@@ -26,7 +26,7 @@ const App = ({ mode }) => {
       case 'STATEMENT':
         return (
           <div>
-            <ValuePropositionStatement />
+            <ValuePropositionStatement notes={notes}/>
             <ModeButtons />
           </div>
         )
@@ -36,7 +36,8 @@ const App = ({ mode }) => {
 }
 
 const mapStateToProps = (state) => ({
-  mode: state.selectedMode
+  mode: state.selectedMode,
+  notes: state.notes
 })
 
 export default connect(mapStateToProps)(App)
