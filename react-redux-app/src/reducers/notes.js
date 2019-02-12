@@ -20,11 +20,14 @@ const notes = (state = [], action) => {
       ]
 
     case 'MOVE_NOTE':
-      const note = state.filter( e => e.id === action.id)[0]
-      currentInd = state.indexOf(note)
+      if (action.page === null) { //check if form rejected with cancel
+        return state
+      }
+      const noteToMove = state.filter( e => e.id === action.id)[0]
+      currentInd = state.indexOf(noteToMove)
       return [
         ...state.slice(0, currentInd),
-        { id: note.id, text: note.text, page: action.page },
+        { id: noteToMove.id, text: noteToMove.text, page: action.page.toUpperCase() },
         ...state.slice(++currentInd)
       ]
 
@@ -53,11 +56,23 @@ const notes = (state = [], action) => {
       })
       return arr
 
-    case 'SORT_ITEM':
+    case 'DRAG_DROP':
       const filtered = state.filter(note => note.page === action.page)
       currentInd = state.indexOf(filtered[action.oldIndex])
       nextInd = state.indexOf(filtered[action.newIndex])
       return arrayMove(state, currentInd, nextInd)
+
+    case 'EDIT_NOTE':
+      if (action.text === null) {
+        return state
+      }
+      const noteToEdit = state.filter( e => e.id === action.id)[0]
+      currentInd = state.indexOf(noteToEdit)
+      return [
+        ...state.slice(0, currentInd),
+        { id: noteToEdit.id, text: action.text, page: noteToEdit.page },
+        ...state.slice(++currentInd)
+      ]
 
     default:
       return state

@@ -14,6 +14,7 @@ const Page = ({ id, selected, children, onClick }) => (
 )
 
 Page.propTypes = {
+  id: PropTypes.string.isRequired,
   selected: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired
