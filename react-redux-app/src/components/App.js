@@ -11,22 +11,31 @@ const App = ({ mode, notes }) => {
     case 'EDIT':
       return (
         <div>
-          <FilterAddNote />
-          <VisibleNoteList />
-          <Footer />
+          <div className="main">
+            <FilterAddNote />
+            <VisibleNoteList />
+            <Footer />
+          </div>
           <ModeButtons />
         </div>
       )
+
       case 'VIEW':
         return (
           <div>
+            <div className="main">
+              <span> hi</span>
+            </div>
             <ModeButtons />
           </div>
          )
+         
       case 'STATEMENT':
         return (
           <div>
-            <ValuePropositionStatement notes={notes}/>
+            <div className="main">
+              <ValuePropositionStatement notes={notes}/>
+            </div>
             <ModeButtons />
           </div>
         )

@@ -5,7 +5,7 @@ import { ModeStatus } from '../actions'
 
 const ModeButtons = () => (
   <div>
-    <span>Select Mode: </span>
+    <span>Select View Mode: </span>
     <ModeSelector mode={ModeStatus.EDIT}>Edit</ModeSelector>
     <ModeSelector mode={ModeStatus.VIEW}>View</ModeSelector>
     <ModeSelector mode={ModeStatus.STATEMENT}>Statement</ModeSelector>
