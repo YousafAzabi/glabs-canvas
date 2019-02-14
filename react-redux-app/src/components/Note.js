@@ -2,23 +2,37 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {SortableElement} from 'react-sortable-hoc'
 
-const Note = SortableElement(({ind, text, onClickDelete, onClickMove, onClickUp, onClickDown, onClick}) => (
-  <li id={'item'+ind}>
-    <span onClick={onClick}>{text}</span>
-    <button className="delete" onClick={onClickDelete}>Delete</button>
-    <button className="move" onClick={onClickMove}>Move</button>
-    <button className="up" onClick={onClickUp}>Up</button>
-    <button className="down" onClick={onClickDown}>Down</button>
+const Note = SortableElement(({ind, text, onClickDelete, onClickMove, onClickUp, onClickDown, onClickEdit}) => (
+  <li id={'item'+ind} >
+    <span >{text}</span>
+    <button className="delete" onClick={onClickDelete}>
+      <i className="fa fa-trash"></i>
+    </button>
+    <button className="move" onClick={onClickMove}>
+      <i className="fa fa-random"></i>
+    </button>
+    <button className="up" onClick={onClickUp}>
+      <i className="fa fa-caret-square-o-up"></i>
+    </button>
+    <button className="down" onClick={onClickDown}>
+      <i className="fa fa-caret-square-o-down"></i>
+    </button>
+    <button className="edit" onClick={onClickEdit}>
+      <i className="fa fa-edit"></i>
+    </button>
   </li>
 ))
 
 
+
 Note.propTypes = {
+  ind: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   onClickDelete: PropTypes.func.isRequired,
   onClickMove: PropTypes.func.isRequired,
   onClickUp: PropTypes.func.isRequired,
   onClickDown: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired
+  onClickEdit: PropTypes.func.isRequired
 }
 
 export default Note

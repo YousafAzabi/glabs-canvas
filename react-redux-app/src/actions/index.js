@@ -29,16 +29,27 @@ export const moveDown = (id, page) => ({
   page
 })
 
-export const setSelectedPage = page => ({
-  type: 'CHOOSE_PAGE',
-  page
-})
-
 export const dragDrop = ({oldIndex, newIndex}, page) => ({
-  type: 'SORT_ITEM',
+  type: 'DRAG_DROP',
   oldIndex,
   newIndex,
   page
+})
+
+export const editNote = (id, text) => ({
+  type: 'EDIT_NOTE',
+  id,
+  text
+})
+
+export const setSelectedPage = page => ({
+  type: 'SELECT_PAGE',
+  page
+})
+
+export const setSelectedMode= mode => ({
+  type: 'SELECT_MODE',
+  mode
 })
 
 export const PageNumbers = {
@@ -48,4 +59,10 @@ export const PageNumbers = {
   FOUR: 'FOUR',
   FIVE: 'FIVE',
   SIX: "SIX"
+}
+
+export const ModeStatus = {
+  EDIT: 'EDIT',
+  VIEW: 'VIEW',
+  STATEMENT: 'STATEMENT'
 }
