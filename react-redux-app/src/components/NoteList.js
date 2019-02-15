@@ -23,7 +23,7 @@ const InnerNoteList = SortableContainer(({notes, onClickDelete, onClickMove, onC
         onClickMove={() => {onClickMove(note.id, prompt("Move note to Page: "))}}
         onClickDown={() => {onClickDown(note.id, note.page)}}
         onClickUp={() => {onClickUp(note.id, note.page)}}
-        onClickEdit={() => {onClickEdit(note.id, prompt("Edit Note: "))}} />
+        onClickEdit={() => {onClickEdit(note.id, prompt("Edit Note: ", note.text))}} />
     ))}
   </ul>
 ))

@@ -4,18 +4,19 @@ const AddNote = ({page, children, onSubmit}) => {
   let input
 
   return (
-    <div>
+    <div id='input-form'>
       <form
         onSubmit={e => {
           e.preventDefault()
-          onSubmit(input.value, page)
           if (!input.value.trim()) {
+            alert('Please enter text in the input field!')
             return
           }
+          onSubmit(input.value, page)
           input.value = ''
         }}
       >
-        <input ref={node => (input = node)} />
+        <input ref={node => (input = node)} placeholder="Notes..."/>
         <button type="submit">Post Note</button>
       </form>
     </div>

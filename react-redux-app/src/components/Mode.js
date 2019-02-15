@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 const Mode = ({ selected, mode, children, onClicked }) => (
   <button
+    className="mode-button"
     onClick={onClicked}
     disabled={selected}
   >

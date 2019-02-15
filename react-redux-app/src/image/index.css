@@ -1,0 +1,119 @@
+/* style for all pages */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: CeraPro-Bold,sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  width: 160px;
+  height: 38px;
+  margin: 2px;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: orange;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.mode-title {
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+
+#mode-button-container {
+  margin: auto;
+  text-align: center;
+background: orange;
+}
+
+/* style for EDIT page */
+
+.main {
+  height: 600px;
+}
+
+#input-form {
+  background: orange;
+  height: 80px;
+}
+
+form {
+  padding: 20px 80px;
+  margin-bottom: 40px;
+}
+
+input {
+  border: none;
+  float: left;
+  font-size: 16px;
+  padding: 10px;
+  width: 80%;
+  margin: 0;
+}
+
+form button {
+  border: none;
+  float: left;
+  padding: 10px;
+  border-radius: 0;
+  margin: 0;
+  width: 20%;
+  background: #FBBBBB;
+}
+
+[id^="item"] {
+  min-height: 40px;
+  margin-bottom: 1px;
+  margin-right: 20px;
+  background-color: #ffdddd;
+  border-left: 6px solid orange;
+}
+
+[id^="item"]:hover {
+  border-left: 16px solid orange;
+}
+
+[id^="item"] button {
+  width: 40px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+#note-text {
+  position: absolute;
+  padding: 10px;
+  padding-right:  220px;
+}
+
+#note-buttons {
+  float: right;
+}
+
+.page-button {
+  vertical-align: middle;
+  height: 50px;
+}
+
+.page-button-container {
+  position:absolute;
+  vertical-align: bottom;
+}
+
+/* style for STATEMENT page */
+
+#statement {
+  font-size: 30px;
+}

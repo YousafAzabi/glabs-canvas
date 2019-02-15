@@ -2,17 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const pages = ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX']
+const text = ['Our', 'help(s)', 'who wants', 'by', 'and', 'unlike']
 
 const ValuePropositionStatement = ({ notes }) => {
-  let statement = '', note = ''
+  let statement = []
+  let note
   for (let i = 0; i < 6; i++) {
     note = notes.find(note => note.page === pages[i])
-    statement = statement + (note ? ' ' + note.text : '')
+    statement.push (text[i])
+    note = note ? ' ' + note.text + ' ' : ' '
+    statement.push(<i>{note}</i>)
   }
-  console.log(statement)
   return (
-    <div>
-      <span >{statement}</span>
+    <div id="statement">
+      <span>{statement}</span>
     </div>
   )
 }
