@@ -5,43 +5,42 @@ import Footer from '../components/Footer'
 import FilterAddNote from '../containers/FilterAddNote'
 import VisibleNoteList from '../containers/VisibleNoteList'
 import ValuePropositionStatement from '../components/ValuePropositionStatement'
+import AllLists from '../components/AllLists'
+import geovationLogo from '../image/geovation_logo.png'
 
 const App = ({ mode, notes }) => {
+  let pageContent = []
   switch (mode) {
     case 'EDIT':
-      return (
-        <div>
-          <div className="main">
-            <FilterAddNote />
-            <VisibleNoteList />
-            <Footer />
-          </div>
-          <ModeButtons />
-        </div>
-      )
+      pageContent.push(<FilterAddNote />)
+      pageContent.push(<Footer />)
+      pageContent.push(<VisibleNoteList />)
+      break
 
-      case 'VIEW':
-        return (
-          <div>
-            <div className="main">
-              <span> hi</span>
-            </div>
-            <ModeButtons />
-          </div>
-         )
-         
-      case 'STATEMENT':
-        return (
-          <div>
-            <div className="main">
-              <ValuePropositionStatement notes={notes}/>
-            </div>
-            <ModeButtons />
-          </div>
-        )
+    case 'VIEW':
+      pageContent.push(<AllLists notes={notes}/>)
+      break
+
+    case 'STATEMENT':
+      pageContent.push(<ValuePropositionStatement notes={notes}/>)
+      break
+
     default:
       return (<div> ERROR in the code </div>)
   }
+  
+  return (
+    <div>
+      <div className="main">
+        <div className="mode-title-container">
+          <img id="logo" alt="" src={geovationLogo}/>
+          <span>{mode} MODE</span>
+        </div>
+        {pageContent}
+      </div>
+      <ModeButtons />
+    </div>
+  )
 }
 
 const mapStateToProps = (state) => ({

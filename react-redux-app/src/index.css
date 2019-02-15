@@ -1,22 +1,211 @@
+/* general style for the document*/
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: CeraPro-Bold,sans-serif;
+  min-width: 800px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* general style for elements */
+button {
+  width: 120px;
+  height: 38px;
+  margin: 2px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
   background-color: orange;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button i {
+  pointer-events: none;
+}
+
+/* style for elements used in all views*/
+.mode-title-container {
+  height: calc(18px + 1.5vw);
+  margin: 15px;
+}
+
+#logo {
+  width: 25%;
+  float: left;
+}
+
+.mode-title-container span {
+  float: right;
+  width: 55%;
+  margin-top: 5px;
+  font-size: calc(8px + 2vw);
+  background: -webkit-linear-gradient(grey, #00AA99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .main {
-  height: 500px;
+  min-height: 600px;
 }
 
-button {
-  width: 100px;
-  height: 30px;
-  border-radius: 12px;
-  margin: 5px;
+/* style for bottons in page footer */
+#mode-button-container {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+  background: orange;
 }
 
-li button {
-  width: 40px;
+.mode-button {
+  margin: 4px;
+  background: #FE8C09;
+}
+
+.mode-button:hover {
+  background: #FA9900;
+  color: grey;
+}
+
+.mode-button:disabled {
+  cursor: default;
+  background: #FE8C09;
+  color: white;
+}
+
+/* style for EDIT page Input Form */
+#input-form {
+  background: orange;
+  height: 80px;
+}
+
+form {
+  padding: 20px 80px;
+  margin-bottom: 40px;
+}
+
+input {
+  border: none;
+  float: left;
+  font-size: 16px;
+  padding: 10px;
+  width: 80%;
+  margin: 0;
+}
+
+form button {
+  float: left;
+  padding: 10px;
+  border-radius: 0;
+  margin: 0;
+  width: 20%;
+  background: #FBBBBB;
+}
+
+form button:hover {
+  color: grey;
+  background: #F0B0BB;
+}
+
+/* style for EDIT page Buttons */
+.page-button-container {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+.page-button {
+  vertical-align: middle;
+  height: 50px;
+  font-size: 12px;
+}
+
+.page-button:hover {
+  background: #FA9900;
+  color: grey;
+}
+
+.page-button:disabled {
+  cursor: default;
+  background: #FE8C09;
+  color: grey;
+}
+
+/* style for EDIT page Notes */
+[id^="item"] {
+  position: relative;
+  margin-bottom: 1px;
+  margin-right: 20px;
+  background-color: #ffdddd;
+  border-left: 6px solid orange;
+}
+
+[id^="item"]:hover {
+  border-left: 16px solid orange;
+}
+
+[id^="item"] button {
+  width: 35px;
   height: 35px;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 20px;
+}
+
+[id^="item"] button:hover {
+  background: #FA9900;
+  color: grey;
+}
+
+#note-text {
+  display: inline-block;
+  padding: 10px;
+  padding-right: 210px;
+}
+
+#note-buttons-container {
+  position: absolute;
+  right:2px;
+  top:1px;
+}
+
+/* style for VIEW page */
+
+table {
+  width: 100%;
+  border: 2px solid orange;
+  border-collapse: collapse;
+}
+
+th {
+  height: 70px;
+  width: 17%;
+  background: orange;
+  border-left: 2px solid white;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+td {
+  border: 2px solid orange;
+  font-size: 14px;
+  vertical-align: top;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* style for STATEMENT page */
+
+#statement {
+  font-size: 30px;
+  padding: 20px;
+  color: white;
+  background: orange;
 }
