@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import fileDownload from 'js-file-download'
-const path = '../saved-data/'
 
 const mapStateToProps = state => ({
   notes: state.notes
@@ -17,7 +16,7 @@ const saveToFile = (notes) => {
       alert('ERROR! File name is empty')
       break
     default:
-      fileName = path + fileName + '.json'
+      fileName = fileName + '.json'
       console.log(fileName)
       fileDownload(JSON.stringify(notes, null, 2), fileName)
       alert('File saved as:' + fileName)
