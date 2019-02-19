@@ -16,7 +16,7 @@ class NoteList extends React.Component {
 }
 
 const InnerNoteList = SortableContainer(({notes, onClickDelete, onClickMove, onClickUp, onClickDown, onClickEdit}) => (
-  <ul>
+  <div>
     {notes.map((note, index) => (
       <Note key={note.id} ind={index.toString()} text={note.text} index={index}
         onClickDelete={() => {onClickDelete(note.id)}}
@@ -25,7 +25,7 @@ const InnerNoteList = SortableContainer(({notes, onClickDelete, onClickMove, onC
         onClickUp={() => {onClickUp(note.id, note.page)}}
         onClickEdit={() => {onClickEdit(note.id, prompt("Edit Note: ", note.text))}} />
     ))}
-  </ul>
+  </div>
 ))
 
 NoteList.propTypes = {

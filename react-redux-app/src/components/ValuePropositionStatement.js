@@ -7,15 +7,19 @@ const text = ['Our', 'help(s)', 'who wants', 'by', 'and', 'unlike']
 const ValuePropositionStatement = ({ notes }) => {
   let statement = []
   let note
+  let length = 0
   for (let i = 0; i < 6; i++) {
     note = notes.find(note => note.page === pages[i])
     statement.push (text[i])
     note = note ? ' ' + note.text + ' ' : ' '
+    length = length + note.length
     statement.push(<i>{note}</i>)
   }
+
   return (
-    <div id="statement">
-      <span>{statement}</span>
+    <div id="statement" style={{fontSize: length + 'px'}}>
+      <div> </div>
+      <span  >{statement}</span>
     </div>
   )
 }

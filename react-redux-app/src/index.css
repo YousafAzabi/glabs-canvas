@@ -1,13 +1,13 @@
 /* general style for the document*/
 html, body {
   height: 100%;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 body {
-  font-family: CeraPro-Bold,sans-serif;
   min-width: 800px;
+  font-family: CeraPro-Bold,sans-serif;
 }
 
 * {
@@ -22,10 +22,10 @@ button {
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  background-color: orange;
-  color: white;
   font-size: 14px;
   font-weight: bold;
+  color: white;
+  background-color: orange;
 }
 
 button i {
@@ -34,33 +34,36 @@ button i {
 
 /* style for elements used in all views*/
 .mode-title-container {
-  height: calc(18px + 1.5vw);
-  margin: 15px;
+  height: calc(40px + 2vw);
+  padding: 15px;
 }
 
 #logo {
-  width: 25%;
   float: left;
+  width: 25%;
+  max-height: 80px;
+  max-width: 455px;
 }
 
 .mode-title-container span {
   float: right;
   width: 55%;
-  margin-top: 5px;
-  font-size: calc(8px + 2vw);
+  margin-top: 2px;
+  font-size: calc(12px + 1.5vw);
   background: -webkit-linear-gradient(grey, #00AA99);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .main {
-  min-height: 600px;
+  min-height: calc( 100vh - 100px);
 }
 
 /* style for bottons in page footer */
 #mode-button-container {
   padding-top: 10px;
   padding-bottom: 20px;
+  margin-top: 10px;
   text-align: center;
   background: orange;
 }
@@ -71,42 +74,42 @@ button i {
 }
 
 .mode-button:hover {
-  background: #FA9900;
   color: grey;
+  background: #FA9900;
 }
 
 .mode-button:disabled {
   cursor: default;
-  background: #FE8C09;
   color: white;
+  background: #FE8C09;
 }
 
 /* style for EDIT page Input Form */
 #input-form {
-  background: orange;
   height: 80px;
+  background: orange;
 }
 
 form {
   padding: 20px 80px;
-  margin-bottom: 40px;
 }
 
 input {
-  border: none;
   float: left;
-  font-size: 16px;
-  padding: 10px;
   width: 80%;
+  padding: 10px;
   margin: 0;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  font-size: 16px;
 }
 
 form button {
-  float: left;
-  padding: 10px;
-  border-radius: 0;
-  margin: 0;
+  float: right;
   width: 20%;
+  padding: 0px;
+  margin: 0;
+  border-radius: 0 20px 20px 0;
   background: #FBBBBB;
 }
 
@@ -117,8 +120,8 @@ form button:hover {
 
 /* style for EDIT page Buttons */
 .page-button-container {
-  margin-top: 10px;
   display: block;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -129,30 +132,35 @@ form button:hover {
 }
 
 .page-button:hover {
-  background: #FA9900;
   color: grey;
+  background: #FA9900;
 }
 
 .page-button:disabled {
   cursor: default;
-  background: #FE8C09;
   color: grey;
+  background: #FE8C09;
 }
 
 /* style for EDIT page Notes */
 [id^="item"] {
   position: relative;
-  margin-bottom: 1px;
-  margin-right: 20px;
+  margin: 1px 20px 0 20px;
+  border-left: 12px solid orange;
+  border-radius: 20px;
   background-color: #ffdddd;
-  border-left: 6px solid orange;
 }
 
 [id^="item"]:hover {
-  border-left: 16px solid orange;
+  border-radius: 10px;
+}
+
+[id^="item"]:hover button {
+  display: inline;
 }
 
 [id^="item"] button {
+  display: none;
   width: 35px;
   height: 35px;
   border-radius: 50px;
@@ -160,8 +168,9 @@ form button:hover {
 }
 
 [id^="item"] button:hover {
-  background: #FA9900;
+  border-radius: 10px;
   color: grey;
+  background: #FA9900;
 }
 
 #note-text {
@@ -172,8 +181,8 @@ form button:hover {
 
 #note-buttons-container {
   position: absolute;
-  right:2px;
-  top:1px;
+  top: 1px;
+  right: 2px;
 }
 
 /* style for VIEW page */
@@ -185,27 +194,50 @@ table {
 }
 
 th {
-  height: 70px;
-  width: 17%;
-  background: orange;
+  width: 16.67%;
+  height: 78px;
+  padding: 0 5px 0 5px;
   border-left: 2px solid white;
-  padding-left: 5px;
-  padding-right: 5px;
+  color: white;
+  background: orange;
 }
 
 td {
+  vertical-align: top;
+  padding: 0 10px 0 10px;
   border: 2px solid orange;
   font-size: 14px;
-  vertical-align: top;
-  padding-left: 5px;
-  padding-right: 5px;
+}
+
+td p {
+  padding: 15px;
+  border-radius: 20px;
+  background: yellow;
+}
+
+td p:hover {
+  background: #FFFA00;
 }
 
 /* style for STATEMENT page */
 
-#statement {
-  font-size: 30px;
-  padding: 20px;
-  color: white;
+#statement div {
+  padding: 40px;
   background: orange;
+}
+
+#statement span {
+  display: block;
+  margin: 20px;
+  height: calc(100% - 270px);
+  width: calc(100% - 40px);
+  font-size: calc(5vw + 9vh - 0.8em);
+  color: black;
+}
+
+#statement i {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3vw;
+  background: yellow;
 }

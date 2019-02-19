@@ -28,7 +28,7 @@ const App = ({ mode, notes }) => {
     default:
       return (<div> ERROR in the code </div>)
   }
-  
+
   return (
     <div>
       <div className="main">
