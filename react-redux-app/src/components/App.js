@@ -1,12 +1,13 @@
 import { connect } from 'react-redux'
 import React from 'react'
-import ModeButtons from '../components/ModeButtons'
-import Footer from '../components/Footer'
+import ModeButtons from './ModeButtons'
+import Footer from './Footer'
 import FilterAddNote from '../containers/FilterAddNote'
 import VisibleNoteList from '../containers/VisibleNoteList'
-import ValuePropositionStatement from '../components/ValuePropositionStatement'
-import AllLists from '../components/AllLists'
-import geovationLogo from '../image/geovation_logo.png'
+import ValuePropositionStatement from './ValuePropositionStatement'
+import AllLists from './AllLists'
+import DataExport from './DataExport'
+import geovationLogo from '../image/geovation_logo.svg'
 
 const App = ({ mode, notes }) => {
   let pageContent = []
@@ -35,6 +36,7 @@ const App = ({ mode, notes }) => {
         <div className="mode-title-container">
           <img id="logo" alt="" src={geovationLogo}/>
           <span>{mode} MODE</span>
+          <DataExport />
         </div>
         {pageContent}
       </div>

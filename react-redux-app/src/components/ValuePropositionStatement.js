@@ -19,7 +19,7 @@ const ValuePropositionStatement = ({ notes }) => {
   return (
     <div id="statement" style={{fontSize: length + 'px'}}>
       <div> </div>
-      <span  >{statement}</span>
+      <span>{statement}</span>
     </div>
   )
 }

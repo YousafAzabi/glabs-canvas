@@ -19,12 +19,16 @@ const AllLists = ({ notes }) => {
 
   return (
     <table>
-      <tr>
-        {tableHeaders}
-      </tr>
-      <tr>
-        {tableRows}
-      </tr>
+      <thead>
+        <tr>
+          {tableHeaders}
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {tableRows}
+        </tr>
+      </tbody>
     </table>
   )
 }

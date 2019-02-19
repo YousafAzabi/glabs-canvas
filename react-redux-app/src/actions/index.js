@@ -47,7 +47,7 @@ export const setSelectedPage = page => ({
   page
 })
 
-export const setSelectedMode= mode => ({
+export const setSelectedMode = mode => ({
   type: 'SELECT_MODE',
   mode
 })
